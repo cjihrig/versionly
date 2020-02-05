@@ -1,6 +1,6 @@
 {
   "name": "versionly",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "App version data generator",
   "author": "Colin J. Ihrig <cjihrig@gmail.com> (http://www.cjihrig.com/)",
   "main": "lib/index.js",
