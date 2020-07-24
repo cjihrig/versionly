@@ -1,6 +1,7 @@
 'use strict';
 const Assert = require('assert');
 const ChildProcess = require('child_process');
+const Fs = require('fs');
 const Path = require('path');
 const Lab = require('@hapi/lab');
 const { generate } = require('../lib');
@@ -19,6 +20,14 @@ describe('Versionly', () => {
     const result = generate(['-e', 'foo:TEST_FOO']);
 
     Assert.deepStrictEqual(result, { foo: 'test_foo' });
+  });
+
+  it('adds file content with -f', () => {
+    const fixturePath = Path.join(fixturesDir, 'file.txt');
+    const fixtureData = Fs.readFileSync(fixturePath, 'utf8');
+    const result = generate(['-f', `foo:${fixturePath}`]);
+
+    Assert.deepStrictEqual(result, { foo: fixtureData });
   });
 
   it('tries to parse git history with -g', () => {

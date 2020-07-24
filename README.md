@@ -88,6 +88,14 @@ specified environment variable does not exist, an exception is thrown.
 For example, `-e user:USER` adds a `user` key to the output whose value is the
 content of the `USER` environment variable.
 
+### `-f key:filename`
+
+The `-f` option includes the contents of the file `filename` in the output. If
+`filename` cannot be read, an exception is thrown.
+
+For example, `-f license:./LICENSE` adds a `license` key to the output whose
+value is the content of the file `./LICENSE`.
+
 ### `-g key`
 
 The `-g` option includes the hash of the most recent git commit. The hash is
